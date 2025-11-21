@@ -1,0 +1,78 @@
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --muted: #a6b0c3;
+  --text: #e6eef8;
+  --accent: #ff4d4f;
+  --glass: rgba(255,255,255,0.03);
+  --radius: 14px;
+  --gap: 16px;
+  font-family: Inter, "Noto Sans TC", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: linear-gradient(180deg, #071021 0%, #0a1220 40%, #071423 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+.container{
+  width:100%;
+  max-width:1060px;
+}
+.form-container, .dashboard-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding:28px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+/* brand */
+.brand{ display:flex; align-items:center; gap:14px; margin-bottom:6px; }
+.logo{ width:64px; height:64px; border-radius:12px; background: linear-gradient(135deg, #111827, #1f2937); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:32px; color:var(--text); box-shadow: 0 6px 20px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.04); }
+/* headings */
+h1{ margin:0; font-size:18px; }
+h2{ margin:4px 0 8px 0; font-size:20px; }
+.lead{ margin:0 0 12px 0; color:var(--muted); font-size:13px; }
+/* form */
+.form-group{ margin-bottom:12px; display:flex; flex-direction:column; gap:6px; }
+.form-group label{ color:var(--muted); font-size:13px; }
+.form-group input{ padding:12px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background: var(--glass); color:var(--text); font-size:14px; outline:none; }
+.form-group input:focus{ box-shadow: 0 6px 18px rgba(0,0,0,0.45), 0 0 0 3px rgba(255,77,79,0.06); }
+/* password toggle wrapper */
+.pw-wrap{ position:relative; display:flex; align-items:center; }
+.pw-toggle{ position:absolute; right:8px; top:50%; transform:translateY(-50%); background:transparent; border:0; color:var(--muted); padding:6px 8px; border-radius:8px; cursor:pointer; }
+/* actions */
+.actions{ display:flex; gap:12px; margin-top:6px; align-items:center; }
+.btn{ padding:10px 14px; border-radius:10px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--text); cursor:pointer; font-weight:600; text-decoration:none; }
+.btn:hover{ transform:translateY(-1px); }
+.btn.ghost{ background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.03); }
+.btn.primary{ background: linear-gradient(90deg, var(--accent), #ff7a7d); color:white; border:0; box-shadow: 0 6px 18px rgba(255,77,79,0.12); }
+/* dashboard layout tweaks */
+.dashboard-card header{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:10px; }
+.user-info{ color:var(--muted); font-size:14px; display:flex; align-items:center; gap:8px; }
+/* search form */
+.search-form{ display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.search-form input{ padding:8px 10px; min-width:120px; border-radius:8px; }
+/* items list */
+.items-list{ display:flex; flex-direction:column; gap:8px; margin-top:8px; }
+.item-card{ padding:10px; border-radius:8px; background: rgba(255,255,255,0.01); display:flex; align-items:center; justify-content:space-between; gap:12px; border:1px solid rgba(255,255,255,0.02); }
+/* table */
+.items-table{ width:100%; border-collapse:collapse; }
+.items-table th, .items-table td{ text-align:left; padding:8px; border-bottom:1px solid rgba(255,255,255,0.03); }
+/* message & small */
+.message{ margin-top:8px; color:var(--muted); font-size:13px; min-height:20px; display:none; }
+.message.success{ color:#b7f0c4; }
+.message.error{ color:#ffb3b3; }
+.small{ margin-top:6px; color:var(--muted); font-size:13px; display:flex; gap:8px; align-items:center; }
+/* responsive */
+@media (min-width:900px){
+  .container{ display:grid; grid-template-columns:1fr; }
+  .form-container{ max-width:920px; margin:0 auto; }
+}

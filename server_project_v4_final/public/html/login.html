@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Nikke</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="form-container">
+      <div class="brand">
+        <div class="logo">N</div>
+        <div>
+          <h1>Nikke</h1>
+          <p style="margin:0;color:var(--muted);font-size:12px">Secure, modern sign-in</p>
+        </div>
+      </div>
+
+      <h2 id="loginTitle">Login</h2>
+      <p class="lead">Please enter your username and password to sign in.</p>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required autocomplete="username" placeholder="username">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="pw-wrap">
+            <input type="password" id="password" name="password" required autocomplete="current-password" placeholder="At least 6 characters">
+            <button type="button" id="pwToggle" class="pw-toggle">Show</button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn primary">Login</button>
+      </form>
+
+      <div class="link-container" style="margin-top:10px">
+        <p>Don't have an account? <a href="/html/register.html">Register here</a></p>
+      </div>
+
+      <div id="message" class="message" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const pwToggle = document.getElementById('pwToggle');
+      const pw = document.getElementById('password');
+      if (pwToggle && pw) {
+        pwToggle.addEventListener('click', () => {
+          if (pw.type === 'password') { pw.type = 'text'; pwToggle.textContent = 'Hide'; }
+          else { pw.type = 'password'; pwToggle.textContent = 'Show'; }
+        });
+      }
+    })();
+  </script>
+
+  <script src="/js/crud.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard — Nikke</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="dashboard-card">
+      <header>
+        <h1>Dashboard</h1>
+        <div class="user-info">
+          Welcome, <span id="username"></span>! (Admin)
+          <button onclick="logout()" class="btn ghost" style="margin-left:8px">Logout</button>
+        </div>
+      </header>
+
+      <div class="search-section">
+        <h3>Search Items</h3>
+        <div class="search-form">
+          <input type="text" id="searchName" placeholder="Search by name...">
+          <input type="text" id="searchCategory" placeholder="Filter by category...">
+          <input type="number" id="minPrice" placeholder="Min price">
+          <input type="number" id="maxPrice" placeholder="Max price">
+          <button onclick="searchItems()" class="btn">Search</button>
+          <button onclick="clearSearch()" class="btn ghost">Clear</button>
+        </div>
+      </div>
+
+      <div class="form-section" style="margin-top:12px">
+        <h3>Add New Item</h3>
+        <form id="itemForm" enctype="multipart/form-data">
+          <input type="text" id="itemName" name="name" placeholder="Item name" required>
+          <input type="text" id="itemDescription" name="description" placeholder="Description">
+          <input type="text" id="itemCategory" name="category" placeholder="Category">
+          <input type="number" id="itemPrice" name="price" placeholder="Price" step="0.01">
+          <label style="margin-top:8px;color:var(--muted);font-size:13px">Image</label>
+          <input type="file" id="itemImage" name="image" accept="image/*">
+          <button type="submit" class="btn" style="margin-top:8px">Add Item</button>
+        </form>
+      </div>
+
+      <div class="items-section" style="margin-top:12px">
+        <h3>Items List</h3>
+        <div id="itemsList" class="items-list"></div>
+      </div>
+
+      <div class="user-management-section" style="margin-top:14px">
+        <h3>User Management</h3>
+        <div class="search-form">
+          <input type="text" id="searchUser" placeholder="Search users...">
+          <button onclick="searchUsers()" class="btn ghost">Search</button>
+          <button onclick="loadUsers()" class="btn ghost">Show All</button>
+        </div>
+        <div id="usersList" class="items-list" style="margin-top:8px"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/crud.js"></script>
+</body>
+</html>
